@@ -1,64 +1,379 @@
-import Image from "next/image";
+import { AnalyticsPlaceholder } from "@/components/analytics-placeholder";
+import { ContactForm } from "@/components/contact-form";
+import { SectionHeading } from "@/components/section-heading";
+import { SiteHeader } from "@/components/site-header";
+import { PremiumAgencyHero } from "@/components/visuals/premium-agency-hero";
+
+const trustPoints = [
+  "Clear scope before design starts",
+  "Transparent pricing without vague package names",
+  "SEO-ready structure and mobile-first layouts",
+  "Vercel-ready deployment on a modern Next.js base",
+  "Automation-ready workflows for future growth",
+  "Post-launch support and maintenance paths",
+];
+
+const demoWebsites = [
+  {
+    name: "Restaurant / Cafe Website",
+    tone: "Warm visuals, menu highlights, booking CTA.",
+    accent: "from-[#ff8f70]/45 via-[#2a1642]/25 to-transparent",
+    preview: ["Chef's tasting menu", "Reservations", "Weekend events"],
+  },
+  {
+    name: "Local Service Business Website",
+    tone: "Trust-led layout for electricians, clinics, and repair businesses.",
+    accent: "from-[#59d5ff]/40 via-[#123443]/30 to-transparent",
+    preview: ["Emergency callout", "Areas served", "Verified reviews"],
+  },
+  {
+    name: "Coaching / Consulting Website",
+    tone: "Authority, testimonials, and clear program structure.",
+    accent: "from-[#7f5cff]/42 via-[#1b173d]/30 to-transparent",
+    preview: ["Signature framework", "Client wins", "Book strategy call"],
+  },
+  {
+    name: "eCommerce Starter Website",
+    tone: "Fast launch storefront with premium product storytelling.",
+    accent: "from-[#3ee6c4]/40 via-[#122e31]/28 to-transparent",
+    preview: ["Featured drop", "Bundles", "Secure checkout"],
+  },
+];
+
+const services = [
+  {
+    icon: "pen",
+    title: "Website Design",
+    benefit: "Premium visual direction that makes the brand feel established from the first screen.",
+    accent: "from-[#6bd2ff] to-[#5068ff]",
+  },
+  {
+    icon: "code",
+    title: "Website Development",
+    benefit: "Modern Next.js builds that stay fast, responsive, and easy to extend.",
+    accent: "from-[#8d7dff] to-[#cc6aef]",
+  },
+  {
+    icon: "bag",
+    title: "eCommerce Starter",
+    benefit: "Starter stores that feel polished enough to sell without a large enterprise build.",
+    accent: "from-[#32dfb0] to-[#1db8db]",
+  },
+  {
+    icon: "spark",
+    title: "AI Automation",
+    benefit: "Workflow-ready systems for inquiry handling, qualification, and internal handoff.",
+    accent: "from-[#7ef0e0] to-[#42a7ff]",
+  },
+  {
+    icon: "cloud",
+    title: "Cloud/Vercel Deployment",
+    benefit: "Clean deployment, launch confidence, and a modern hosting posture from day one.",
+    accent: "from-[#63d7ff] to-[#7f8cff]",
+  },
+];
+
+const pricingCards = [
+  {
+    name: "Landing Page",
+    price: "₹7,999 – ₹14,999",
+    description: "Best for focused campaigns, launches, and single-offer conversion pages.",
+  },
+  {
+    name: "Business Website",
+    price: "₹19,999 – ₹39,999",
+    description: "Multi-section company websites with a premium look, cleaner scope, and trust-led structure.",
+    featured: true,
+  },
+  {
+    name: "eCommerce",
+    price: "₹49,999 – ₹89,999",
+    description: "Starter product stores with premium storytelling and scalable launch foundations.",
+  },
+  {
+    name: "AI Automation Add-on",
+    price: "₹14,999 – ₹49,999",
+    description: "Workflow logic, handoff automation, and internal operational uplift around the website.",
+  },
+  {
+    name: "Website Maintenance",
+    price: "₹2,999/month onwards",
+    description: "Post-launch support, content updates, and iterative improvements without rebuild risk.",
+  },
+];
+
+const processSteps = [
+  ["01", "Discover", "Clarify the offer, audience, and trust gaps."],
+  ["02", "Design", "Shape the visual system and page composition."],
+  ["03", "Build", "Develop the site on a clean modern stack."],
+  ["04", "Review", "Refine details against buyer perception and scope."],
+  ["05", "Launch", "Deploy with confidence and a future-ready base."],
+];
+
+function ServiceIcon({ icon }: { icon: string }) {
+  const common = "h-5 w-5 stroke-[1.8]";
+
+  switch (icon) {
+    case "pen":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" className={common}>
+          <path d="M4 20l4.5-1 9-9a2.2 2.2 0 10-3.1-3.1l-9 9L4 20z" stroke="currentColor" />
+        </svg>
+      );
+    case "code":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" className={common}>
+          <path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" stroke="currentColor" />
+        </svg>
+      );
+    case "bag":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" className={common}>
+          <path d="M6 8h12l-1 12H7L6 8zm3 0a3 3 0 016 0" stroke="currentColor" />
+        </svg>
+      );
+    case "spark":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" className={common}>
+          <path d="M12 3l1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7L12 3z" stroke="currentColor" />
+        </svg>
+      );
+    default:
+      return (
+        <svg viewBox="0 0 24 24" fill="none" className={common}>
+          <path d="M5 16.5l7-9 7 9M12 7v10" stroke="currentColor" />
+        </svg>
+      );
+  }
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div id="top" className="page-shell">
+      <SiteHeader />
+      <main className="section-grid">
+        <section className="hero-grid mx-auto max-w-7xl px-6 pb-16 pt-8 lg:px-8 lg:pb-24 lg:pt-12">
+          <div className="space-y-8 fade-rise">
+            <div className="eyebrow-chip">Premium dark launch systems for ambitious Indian businesses</div>
+            <div className="space-y-6">
+              <p className="hero-kicker">Modern websites, automation-ready workflows, and premium first impressions.</p>
+              <h1 className="hero-title">Premium websites and AI automation for growing businesses</h1>
+              <p className="hero-copy">
+                Zenscio helps Indian businesses launch modern, conversion-focused websites with clear scope, fast
+                delivery, and automation-ready workflows.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <a href="#contact" className="primary-cta">
+                Book a strategy call
+              </a>
+              <a href="#demo-websites" className="secondary-cta">
+                Explore demo websites
+              </a>
+            </div>
+            <dl className="grid gap-4 pt-4 sm:grid-cols-3">
+              {trustPoints.slice(0, 3).map((item) => (
+                <div key={item} className="metric-card">
+                  <dt className="metric-label">Why it matters</dt>
+                  <dd className="metric-value text-[1.15rem] leading-7">{item}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="fade-rise-delay">
+            <PremiumAgencyHero />
+          </div>
+        </section>
+
+        <section id="demo-websites" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+          <SectionHeading
+            eyebrow="Demo websites we can build"
+            title="Four preview directions that show range without looking template-made"
+            description="Each concept is presented like a mini website surface, not a plain text card, so buyers can immediately picture the caliber of launch Zenscio can deliver."
+          />
+          <div className="mt-10 grid gap-6 xl:grid-cols-4">
+            {demoWebsites.map((item) => (
+              <article key={item.name} className="demo-card">
+                <div className={`demo-preview bg-gradient-to-br ${item.accent}`}>
+                  <div className="demo-window">
+                    <div className="demo-window-top" />
+                    <div className="demo-window-hero">
+                      <div className="demo-line demo-line-wide" />
+                      <div className="demo-line" />
+                    </div>
+                    <div className="demo-window-grid">
+                      {item.preview.map((preview) => (
+                        <div key={preview} className="demo-window-chip">
+                          {preview}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="capability-title text-[1.3rem]">{item.name}</h3>
+                  <p className="capability-copy">{item.tone}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="services" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+          <SectionHeading
+            eyebrow="Services"
+            title="Five service layers designed to make launch quality obvious"
+            description="Each card carries a concrete benefit, a visual accent, and a more premium interaction surface than the previous generic service grids."
+          />
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+            {services.map((service) => (
+              <article key={service.title} className="service-card">
+                <div className={`service-icon-wrap bg-gradient-to-br ${service.accent}`}>
+                  <ServiceIcon icon={service.icon} />
+                </div>
+                <h3 className="service-title">{service.title}</h3>
+                <p className="capability-copy">{service.benefit}</p>
+                <div className={`service-accent bg-gradient-to-r ${service.accent}`} />
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="pricing" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+          <div className="pricing-shell">
+            <SectionHeading
+              eyebrow="Pricing"
+              title="Clean pricing with one clearly highlighted business website offer"
+              description="The layout is split into a three-card first row and a two-card second row so pricing reads quickly on desktop without awkward wrapping."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <div className="mt-10 pricing-grid">
+              {pricingCards.map((item) => (
+                <article key={item.name} className={`pricing-spec-card ${item.featured ? "pricing-spec-card-featured" : ""}`}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="pricing-name">{item.name}</p>
+                      <p className="pricing-range">{item.price}</p>
+                    </div>
+                    {item.featured ? <div className="pricing-badge">Most Popular</div> : null}
+                  </div>
+                  <p className="mt-5 text-sm leading-7 text-inherit/80">{item.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="proof" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+            <div className="proof-intro">
+              <SectionHeading
+                eyebrow="Trust"
+                title="A genuine trust section built around what buyers actually look for"
+                description="This section is here to make the company feel organized, transparent, and technically capable before a conversation even starts."
+                invert
+              />
+            </div>
+            <div className="grid gap-4 md:grid-cols-2">
+              {trustPoints.map((item) => (
+                <div key={item} className="trust-card">
+                  <div className="trust-dot" />
+                  <p>{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+          <SectionHeading
+            eyebrow="What it feels like"
+            title="A premium launch surface should feel trustworthy before the user starts comparing details"
+            description="The right blend of dark UI, spacing, typography, proof placement, and motion makes the business feel more established without becoming decorative for its own sake."
+          />
+          <div className="mt-10 grid gap-6 xl:grid-cols-3">
+            {[
+              "Premium dark glass header with a branded Z mark and strong CTA.",
+              "Hero with a real website-and-automation visual, not placeholder chips.",
+              "Section composition designed to look like a serious AI/web company, not a generic freelancer template.",
+            ].map((item) => (
+              <div key={item} className="capability-card">
+                <p className="capability-copy mt-0">{item}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="process" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+          <SectionHeading
+            eyebrow="Process"
+            title="A visual launch timeline from discovery to deployment"
+            description="Discover → Design → Build → Review → Launch, shown as a connected premium timeline instead of a plain numbered list."
+          />
+          <div className="process-timeline mt-10">
+            {processSteps.map(([step, title, body], index) => (
+              <div key={step} className="process-node">
+                <div className="process-node-badge">{step}</div>
+                <div className="process-node-body">
+                  <h3 className="capability-title">{title}</h3>
+                  <p className="capability-copy">{body}</p>
+                </div>
+                {index < processSteps.length - 1 ? <div className="process-node-line" /> : null}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+          <div className="final-cta-shell">
+            <div className="space-y-6">
+              <p className="offer-tag text-white/70">Final CTA</p>
+              <h2 className="font-[family:var(--font-space-grotesk)] text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                Ready to build a website your customers can trust?
+              </h2>
+              <p className="max-w-2xl text-lg leading-8 text-white/72">
+                Bring the current site, the offer, and the business goal. Zenscio can turn that into a cleaner,
+                sharper, more premium launch system with room for automation later.
+              </p>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <a href="#contact" className="primary-cta">
+                  Start your website project
+                </a>
+                <a href="#pricing" className="secondary-cta secondary-cta-dark">
+                  View pricing
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
+          <div className="contact-shell">
+            <div className="space-y-8">
+              <SectionHeading
+                eyebrow="Contact"
+                title="Bring the commercial problem, not a finished brief"
+                description="If the current homepage undersells the business, confuses the offer, or simply looks too generic for the level you want to sell at, that is enough to start."
+              />
+              <div className="contact-checklist">
+                <p className="offer-tag">Useful inputs for the first call</p>
+                <ul className="mt-5 space-y-3">
+                  {[
+                    "What the current homepage fails to communicate",
+                    "Which service or offer matters most this quarter",
+                    "Whether the goal is trust, lead quality, speed to launch, or all three",
+                  ].map((item) => (
+                    <li key={item} className="offer-point">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <AnalyticsPlaceholder />
+            </div>
+            <ContactForm destinationEmail="hello@zenscio.example" />
+          </div>
+        </section>
       </main>
     </div>
   );
