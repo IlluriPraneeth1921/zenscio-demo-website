@@ -2,6 +2,7 @@ const navItems = [
   { label: "Why Zenscio", href: "#proof" },
   { label: "Services", href: "#services" },
   { label: "Work", href: "#case-studies" },
+  { label: "About", href: "#about" },
   { label: "Pricing", href: "#pricing" },
   { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },
@@ -31,11 +32,18 @@ export function SiteHeader() {
         </nav>
         <a
           href="#contact"
-          className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white px-5 py-2.5 text-sm font-semibold text-[var(--color-ink)] transition hover:border-[var(--color-coral)] hover:bg-[var(--color-coral)] hover:text-white"
+          className="hidden items-center justify-center rounded-full border border-white/12 bg-white px-5 py-2.5 text-sm font-semibold text-[var(--color-ink)] transition hover:border-[var(--color-coral)] hover:bg-[var(--color-coral)] hover:text-white sm:inline-flex"
         >
           Book intro call
         </a>
       </div>
+      <nav className="header-mobile-nav lg:hidden" aria-label="Section navigation">
+        {navItems.map((item) => (
+          <a key={item.href} href={item.href} className="header-mobile-link">
+            {item.label}
+          </a>
+        ))}
+      </nav>
     </header>
   );
 }

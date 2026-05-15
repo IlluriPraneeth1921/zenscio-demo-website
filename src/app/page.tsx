@@ -13,6 +13,12 @@ const trustPoints = [
   "Post-launch support and maintenance paths",
 ];
 
+const heroMetrics = [
+  ["Fast launch", "2-4 week delivery windows for focused business sites."],
+  ["Clear pricing", "Rupee-based ranges without filler package naming."],
+  ["Future-ready", "Built for expansion into automation and operations later."],
+];
+
 const demoWebsites = [
   {
     name: "Restaurant / Cafe Website",
@@ -76,29 +82,62 @@ const services = [
 const pricingCards = [
   {
     name: "Landing Page",
-    price: "₹7,999 – ₹14,999",
+    price: "Rs 7,999 - Rs 14,999",
     description: "Best for focused campaigns, launches, and single-offer conversion pages.",
   },
   {
     name: "Business Website",
-    price: "₹19,999 – ₹39,999",
+    price: "Rs 19,999 - Rs 39,999",
     description: "Multi-section company websites with a premium look, cleaner scope, and trust-led structure.",
     featured: true,
   },
   {
     name: "eCommerce",
-    price: "₹49,999 – ₹89,999",
+    price: "Rs 49,999 - Rs 89,999",
     description: "Starter product stores with premium storytelling and scalable launch foundations.",
   },
   {
     name: "AI Automation Add-on",
-    price: "₹14,999 – ₹49,999",
+    price: "Rs 14,999 - Rs 49,999",
     description: "Workflow logic, handoff automation, and internal operational uplift around the website.",
   },
   {
     name: "Website Maintenance",
-    price: "₹2,999/month onwards",
+    price: "Rs 2,999/month onwards",
     description: "Post-launch support, content updates, and iterative improvements without rebuild risk.",
+  },
+];
+
+const caseStudies = [
+  {
+    title: "Clinic trust rebuild",
+    summary: "Reframed a local healthcare brand around clarity, doctor credibility, and cleaner conversion flow.",
+    highlights: ["Clearer service hierarchy", "Trust markers above the fold", "Faster mobile contact path"],
+  },
+  {
+    title: "Home services lead filter",
+    summary: "Turned a generic contractor landing page into a stronger quoting funnel with better page rhythm.",
+    highlights: ["Service-area proof layout", "Visible urgency CTA", "Quote quality improved"],
+  },
+  {
+    title: "Coaching authority refresh",
+    summary: "Elevated an information-heavy consulting page into a premium narrative with sharper offer framing.",
+    highlights: ["Program structure simplified", "Proof integrated into page flow", "Stronger close section"],
+  },
+];
+
+const aboutPrinciples = [
+  {
+    title: "Design should remove doubt",
+    body: "We use hierarchy, spacing, and proof placement to reduce hesitation before a buyer compares details.",
+  },
+  {
+    title: "Builds should stay practical",
+    body: "A premium site still needs clean code, reusable sections, and sensible launch constraints.",
+  },
+  {
+    title: "Operations matter after launch",
+    body: "Every page is shaped so the business can extend into automation, maintenance, and iterative growth.",
   },
 ];
 
@@ -172,10 +211,10 @@ export default function Home() {
               </a>
             </div>
             <dl className="grid gap-4 pt-4 sm:grid-cols-3">
-              {trustPoints.slice(0, 3).map((item) => (
-                <div key={item} className="metric-card">
-                  <dt className="metric-label">Why it matters</dt>
-                  <dd className="metric-value text-[1.15rem] leading-7">{item}</dd>
+              {heroMetrics.map(([label, value]) => (
+                <div key={label} className="metric-card">
+                  <dt className="metric-label">{label}</dt>
+                  <dd className="metric-value">{value}</dd>
                 </div>
               ))}
             </dl>
@@ -240,6 +279,32 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="case-studies" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+          <SectionHeading
+            eyebrow="Case studies"
+            title="Representative outcomes framed like real project stories"
+            description="These examples are positioned to show the kinds of before-and-after improvements Zenscio can deliver for service businesses that need stronger first impressions."
+          />
+          <div className="mt-10 grid gap-6 xl:grid-cols-3">
+            {caseStudies.map((item) => (
+              <article key={item.title} className="case-study-card">
+                <div className="case-study-top">
+                  <p className="offer-tag">Representative project</p>
+                  <h3 className="case-study-title">{item.title}</h3>
+                  <p className="case-study-summary">{item.summary}</p>
+                </div>
+                <div className="case-study-body">
+                  {item.highlights.map((highlight) => (
+                    <div key={highlight} className="case-study-point">
+                      {highlight}
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="pricing" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           <div className="pricing-shell">
             <SectionHeading
@@ -285,6 +350,26 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="about" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+          <div className="about-shell">
+            <div className="about-copy">
+              <SectionHeading
+                eyebrow="About"
+                title="Zenscio is structured as a lean premium studio, not a vague agency layer"
+                description="The positioning is intentionally straightforward: clearer offers, cleaner launch systems, and a website surface that makes the business feel more serious from the first screen."
+              />
+            </div>
+            <div className="grid gap-5">
+              {aboutPrinciples.map((item) => (
+                <article key={item.title} className="about-card">
+                  <h3 className="capability-title text-[1.35rem]">{item.title}</h3>
+                  <p className="capability-copy">{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           <SectionHeading
             eyebrow="What it feels like"
@@ -308,7 +393,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Process"
             title="A visual launch timeline from discovery to deployment"
-            description="Discover → Design → Build → Review → Launch, shown as a connected premium timeline instead of a plain numbered list."
+            description="Discover -> Design -> Build -> Review -> Launch, shown as a connected premium timeline instead of a plain numbered list."
           />
           <div className="process-timeline mt-10">
             {processSteps.map(([step, title, body], index) => (
@@ -375,6 +460,37 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <footer className="site-footer">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-10 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+          <div className="space-y-4">
+            <p className="font-[family:var(--font-space-grotesk)] text-sm font-bold uppercase tracking-[0.24em] text-white/68">
+              Zenscio
+            </p>
+            <p className="max-w-xl text-base leading-8 text-white/72">
+              Premium websites, conversion-focused structure, and automation-ready launch systems for Indian
+              businesses that need a stronger digital first impression.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <p className="footer-label">Explore</p>
+              <div className="footer-links">
+                <a href="#services">Services</a>
+                <a href="#case-studies">Case studies</a>
+                <a href="#pricing">Pricing</a>
+              </div>
+            </div>
+            <div>
+              <p className="footer-label">Contact</p>
+              <div className="footer-links">
+                <a href="#contact">Book a project review</a>
+                <a href="mailto:hello@zenscio.example">hello@zenscio.example</a>
+                <a href="#top">Back to top</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
