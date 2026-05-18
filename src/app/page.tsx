@@ -149,6 +149,18 @@ const processSteps = [
   ["05", "Launch", "Deploy with confidence and a future-ready base."],
 ];
 
+const contactSignals = [
+  ["24h", "Typical first response window for qualified project inquiries."],
+  ["3-part", "Call structure covering offer, page gaps, and launch constraints."],
+  ["0 fluff", "Clear scope, direct recommendations, and practical next steps."],
+];
+
+const contactStudioNotes = [
+  "Current site or landing page link",
+  "Primary offer that needs better trust or conversion",
+  "Decision timeline, launch pressure, or internal constraints",
+];
+
 function ServiceIcon({ icon }: { icon: string }) {
   const common = "h-5 w-5 stroke-[1.8]";
 
@@ -191,10 +203,10 @@ export default function Home() {
     <div id="top" className="page-shell">
       <SiteHeader />
       <main className="section-grid">
-        <section className="hero-grid mx-auto max-w-7xl px-6 pb-16 pt-8 lg:px-8 lg:pb-24 lg:pt-12">
-          <div className="space-y-8 fade-rise">
+        <section className="hero-grid hero-first-screen mx-auto max-w-7xl px-6 pb-12 pt-6 lg:px-8 lg:pb-14 lg:pt-8 xl:pb-20 xl:pt-10">
+          <div className="space-y-6 xl:space-y-8 fade-rise">
             <div className="eyebrow-chip">Premium dark launch systems for ambitious Indian businesses</div>
-            <div className="space-y-6">
+            <div className="space-y-5 xl:space-y-6">
               <p className="hero-kicker">Modern websites, automation-ready workflows, and premium first impressions.</p>
               <h1 className="hero-title">Premium websites and AI automation for growing businesses</h1>
               <p className="hero-copy">
@@ -210,7 +222,7 @@ export default function Home() {
                 Explore demo websites
               </a>
             </div>
-            <dl className="grid gap-4 pt-4 sm:grid-cols-3">
+            <dl className="grid gap-4 pt-2 xl:pt-4 sm:grid-cols-3">
               {heroMetrics.map(([label, value]) => (
                 <div key={label} className="metric-card">
                   <dt className="metric-label">{label}</dt>
@@ -434,25 +446,48 @@ export default function Home() {
 
         <section id="contact" className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
           <div className="contact-shell">
-            <div className="space-y-8">
-              <SectionHeading
-                eyebrow="Contact"
-                title="Bring the commercial problem, not a finished brief"
-                description="If the current homepage undersells the business, confuses the offer, or simply looks too generic for the level you want to sell at, that is enough to start."
-              />
-              <div className="contact-checklist">
-                <p className="offer-tag">Useful inputs for the first call</p>
-                <ul className="mt-5 space-y-3">
-                  {[
-                    "What the current homepage fails to communicate",
-                    "Which service or offer matters most this quarter",
-                    "Whether the goal is trust, lead quality, speed to launch, or all three",
-                  ].map((item) => (
-                    <li key={item} className="offer-point">
+            <div className="contact-story">
+              <div className="space-y-8">
+                <SectionHeading
+                  eyebrow="Contact"
+                  title="Bring the commercial problem, not a finished brief"
+                  description="If the current homepage undersells the business, confuses the offer, or simply looks too generic for the level you want to sell at, that is enough to start."
+                />
+                <div className="contact-checklist contact-checklist-dark">
+                  <p className="offer-tag">Useful inputs for the first call</p>
+                  <ul className="mt-5 space-y-3">
+                    {[
+                      "What the current homepage fails to communicate",
+                      "Which service or offer matters most this quarter",
+                      "Whether the goal is trust, lead quality, speed to launch, or all three",
+                    ].map((item) => (
+                      <li key={item} className="offer-point offer-point-dark">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="contact-proof-grid">
+                {contactSignals.map(([label, value]) => (
+                  <div key={label} className="contact-proof-card">
+                    <p className="contact-proof-label">{label}</p>
+                    <p className="contact-proof-copy">{value}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="contact-studio-card">
+                <div>
+                  <p className="offer-tag">What to send</p>
+                  <h3 className="contact-studio-title">Enough detail to diagnose the trust and conversion problem fast</h3>
+                </div>
+                <div className="contact-studio-list">
+                  {contactStudioNotes.map((item) => (
+                    <div key={item} className="contact-studio-item">
                       {item}
-                    </li>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
               <AnalyticsPlaceholder />
             </div>

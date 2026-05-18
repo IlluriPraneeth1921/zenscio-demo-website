@@ -41,9 +41,9 @@ export function ContactForm({ destinationEmail }: ContactFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-5 rounded-[2rem] border border-black/6 bg-white p-8 shadow-[0_24px_70px_rgba(30,41,59,0.08)]"
+      className="contact-form-panel space-y-5"
     >
-      <div className="rounded-[1.5rem] bg-[var(--color-cream)] p-4 text-sm leading-6 text-[var(--color-slate)]">
+      <div className="contact-form-intro">
         Share the offer, timeline, and decision constraints. We use this to shape the first call around scope,
         proof requirements, and launch risk.
       </div>
@@ -53,7 +53,7 @@ export function ContactForm({ destinationEmail }: ContactFormProps) {
           <input
             required
             name="name"
-            className="w-full rounded-2xl border border-black/10 bg-[var(--color-sand)] px-4 py-3 outline-none transition focus:border-[var(--color-coral)]"
+            className="contact-input"
           />
         </label>
         <label className="space-y-2 text-sm font-medium text-[var(--color-ink)]">
@@ -62,7 +62,7 @@ export function ContactForm({ destinationEmail }: ContactFormProps) {
             required
             type="email"
             name="email"
-            className="w-full rounded-2xl border border-black/10 bg-[var(--color-sand)] px-4 py-3 outline-none transition focus:border-[var(--color-coral)]"
+            className="contact-input"
           />
         </label>
       </div>
@@ -71,7 +71,7 @@ export function ContactForm({ destinationEmail }: ContactFormProps) {
           Company / brand
           <input
             name="company"
-            className="w-full rounded-2xl border border-black/10 bg-[var(--color-sand)] px-4 py-3 outline-none transition focus:border-[var(--color-coral)]"
+            className="contact-input"
           />
         </label>
         <label className="space-y-2 text-sm font-medium text-[var(--color-ink)]">
@@ -79,7 +79,7 @@ export function ContactForm({ destinationEmail }: ContactFormProps) {
           <select
             name="projectType"
             defaultValue="Premium marketing website"
-            className="w-full rounded-2xl border border-black/10 bg-[var(--color-sand)] px-4 py-3 outline-none transition focus:border-[var(--color-coral)]"
+            className="contact-input"
           >
             <option>Premium marketing website</option>
             <option>Conversion-focused landing page</option>
@@ -94,15 +94,12 @@ export function ContactForm({ destinationEmail }: ContactFormProps) {
           required
           name="details"
           rows={6}
-          className="w-full rounded-3xl border border-black/10 bg-[var(--color-sand)] px-4 py-3 outline-none transition focus:border-[var(--color-coral)]"
+          className="contact-input contact-textarea"
           placeholder="Tell us about the offer, audience, current site problem, decision deadline, and what this website needs to prove."
         />
       </label>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <button
-          type="submit"
-          className="inline-flex items-center justify-center rounded-full bg-[var(--color-ink)] px-6 py-3 font-semibold text-white transition hover:bg-[var(--color-coral)]"
-        >
+        <button type="submit" className="contact-submit">
           Request project review
         </button>
         <p className="max-w-sm text-sm leading-6 text-[var(--color-slate)]">{status}</p>

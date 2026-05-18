@@ -100,13 +100,21 @@ img {
 
 .hero-grid {
   display: grid;
-  gap: 3rem;
+  gap: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.hero-first-screen {
+  min-height: calc(100svh - 8.5rem);
 }
 
 @media (min-width: 1024px) {
   .hero-grid {
-    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
     align-items: center;
+  }
+
+  .hero-first-screen {
+    min-height: calc(100svh - 6.25rem);
   }
 }
 
@@ -134,22 +142,22 @@ img {
 }
 
 .hero-title {
-  max-width: 12ch;
+  max-width: 11ch;
   margin: 0;
   font-family: var(--font-space-grotesk), sans-serif;
-  font-size: clamp(3.8rem, 10vw, 7.5rem);
+  font-size: clamp(3.15rem, 7.4vw, 6.4rem);
   font-weight: 700;
-  line-height: 0.92;
+  line-height: 0.96;
   letter-spacing: -0.05em;
   color: var(--color-ink);
 }
 
 .hero-copy {
-  max-width: 42rem;
+  max-width: 40rem;
   margin: 0;
   color: var(--color-slate);
-  font-size: 1.08rem;
-  line-height: 1.9;
+  font-size: 1.02rem;
+  line-height: 1.82;
 }
 
 .primary-cta,
@@ -522,8 +530,169 @@ img {
 
 @media (min-width: 1024px) {
   .contact-shell {
-    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
   }
+}
+
+.contact-story {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 1.25rem;
+  padding: 2rem;
+  border: 1px solid rgba(13, 19, 32, 0.08);
+  border-radius: 2.4rem;
+  background:
+    radial-gradient(circle at top right, rgba(89, 213, 255, 0.12), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(127, 92, 255, 0.16), transparent 32%),
+    linear-gradient(145deg, #08111d 0%, #0f1c2d 56%, #143447 100%);
+  box-shadow: 0 32px 90px rgba(8, 17, 29, 0.18);
+}
+
+.contact-story .offer-tag {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.contact-checklist-dark {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+}
+
+.offer-point-dark {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-proof-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .contact-proof-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.contact-proof-card,
+.contact-studio-card,
+.contact-form-panel {
+  border: 1px solid rgba(13, 19, 32, 0.08);
+  border-radius: 2rem;
+  box-shadow: 0 24px 60px rgba(13, 19, 32, 0.08);
+}
+
+.contact-proof-card {
+  padding: 1.3rem;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.contact-proof-label {
+  margin: 0;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: white;
+}
+
+.contact-proof-copy {
+  margin: 0.7rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
+.contact-studio-card {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, rgba(252, 247, 239, 0.96), rgba(242, 234, 223, 0.92));
+}
+
+.contact-studio-title {
+  margin: 0.8rem 0 0;
+  max-width: 18ch;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--color-ink);
+}
+
+.contact-studio-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact-studio-item {
+  border-radius: 1.25rem;
+  background: white;
+  padding: 0.95rem 1rem;
+  color: var(--color-slate);
+  line-height: 1.65;
+}
+
+.contact-form-panel {
+  padding: 1.1rem;
+  background: linear-gradient(180deg, rgba(255, 252, 247, 0.94), rgba(247, 238, 227, 0.96));
+}
+
+.contact-form-intro {
+  border-radius: 1.6rem;
+  background: white;
+  padding: 1rem;
+  line-height: 1.7;
+  color: var(--color-slate);
+}
+
+.contact-input {
+  width: 100%;
+  border: 1px solid rgba(13, 19, 32, 0.1);
+  border-radius: 1.15rem;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.95rem 1rem;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.contact-input:focus {
+  border-color: rgba(204, 106, 77, 0.8);
+  box-shadow: 0 0 0 4px rgba(204, 106, 77, 0.12);
+  transform: translateY(-1px);
+}
+
+.contact-textarea {
+  min-height: 10rem;
+  border-radius: 1.5rem;
+  resize: vertical;
+}
+
+.contact-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.5rem;
+  border: 0;
+  border-radius: 9999px;
+  padding: 0 1.5rem;
+  background: linear-gradient(135deg, #0d1320, #143447);
+  box-shadow: 0 18px 40px rgba(13, 19, 32, 0.16);
+  color: white;
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.contact-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 46px rgba(13, 19, 32, 0.2);
+  background: linear-gradient(135deg, #cc6a4d, #7f5cff);
 }
 
 .fade-rise {
@@ -581,7 +750,7 @@ img {
 
 .premium-hero-visual {
   position: relative;
-  min-height: 42rem;
+  min-height: clamp(31rem, 44vw, 39rem);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 2.4rem;
@@ -610,9 +779,10 @@ img {
 }
 
 .premium-hero-browser {
-  top: 4.8rem;
+  top: 3.4rem;
   left: 2rem;
-  width: min(100% - 4rem, 31rem);
+  width: min(100% - 4rem, 29rem);
+  max-width: calc(100% - 4rem);
   overflow: hidden;
   background: rgba(15, 24, 38, 0.9);
 }
@@ -721,9 +891,9 @@ img {
 }
 
 .premium-hero-code {
-  top: 2rem;
+  top: 1.5rem;
   right: 1.8rem;
-  width: 14rem;
+  width: min(14rem, calc(100% - 4rem));
   padding: 1rem;
   background: rgba(7, 13, 24, 0.78);
 }
@@ -738,8 +908,8 @@ img {
 
 .premium-hero-analytics {
   right: 2rem;
-  bottom: 3rem;
-  width: 14.5rem;
+  bottom: 2.2rem;
+  width: min(14.5rem, calc(100% - 4rem));
   padding: 1rem;
   background: rgba(255, 255, 255, 0.09);
 }
@@ -780,19 +950,19 @@ img {
 }
 
 .premium-hero-note {
-  width: 12rem;
+  width: min(12rem, calc(100% - 4rem));
   padding: 1rem;
   background: rgba(255, 255, 255, 0.08);
 }
 
 .premium-hero-note-left {
   left: 3rem;
-  bottom: 2.2rem;
+  bottom: 1.8rem;
 }
 
 .premium-hero-note-right {
-  right: 18rem;
-  top: 15rem;
+  right: 16rem;
+  top: 12.5rem;
 }
 
 .premium-hero-note p:last-child {
@@ -845,7 +1015,12 @@ img {
 
 @media (max-width: 1279px) {
   .premium-hero-visual {
-    min-height: 39rem;
+    min-height: 36rem;
+  }
+
+  .premium-hero-browser {
+    top: 2.6rem;
+    width: min(100% - 16rem, 27rem);
   }
 
   .premium-hero-code {
@@ -854,15 +1029,23 @@ img {
     width: 12.5rem;
   }
 
+  .premium-hero-note {
+    width: 10.5rem;
+  }
+
   .premium-hero-note-right {
-    right: 15rem;
-    top: 14.5rem;
+    right: 12.5rem;
+    top: 12rem;
   }
 }
 
 @media (max-width: 1023px) {
+  .hero-first-screen {
+    min-height: auto;
+  }
+
   .premium-hero-visual {
-    min-height: 48rem;
+    min-height: 44rem;
   }
 
   .premium-hero-browser {
@@ -873,7 +1056,8 @@ img {
   .premium-hero-code {
     top: auto;
     right: 1.25rem;
-    bottom: 12.5rem;
+    bottom: 11.5rem;
+    left: auto;
   }
 
   .premium-hero-analytics {
@@ -887,15 +1071,16 @@ img {
   }
 
   .premium-hero-note-right {
-    top: 22.75rem;
+    top: 21rem;
     right: auto;
     left: 1.25rem;
+    width: min(14rem, calc(100% - 2.5rem));
   }
 }
 
 @media (max-width: 767px) {
   .premium-hero-visual {
-    min-height: 51rem;
+    min-height: 46rem;
     border-radius: 2rem;
   }
 
@@ -946,15 +1131,68 @@ img {
   }
 
   .premium-hero-code {
-    bottom: 15.5rem;
+    top: 21rem;
+    bottom: auto;
   }
 
   .premium-hero-analytics {
-    bottom: 7rem;
+    bottom: 6.5rem;
   }
 
   .premium-hero-note-left {
     bottom: 1rem;
+  }
+
+  .premium-hero-note-right,
+  .premium-workflow {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 820px) {
+  .hero-first-screen {
+    min-height: calc(100svh - 5.5rem);
+  }
+
+  .hero-title {
+    max-width: 10ch;
+    font-size: clamp(3rem, 5.25vw, 5rem);
+  }
+
+  .hero-copy {
+    max-width: 36rem;
+    font-size: 0.98rem;
+    line-height: 1.74;
+  }
+
+  .premium-hero-visual {
+    min-height: 33rem;
+  }
+
+  .premium-hero-browser {
+    top: 2rem;
+    left: 1.5rem;
+    width: min(calc(100% - 14.5rem), 25rem);
+  }
+
+  .premium-hero-code {
+    top: 1rem;
+    right: 1rem;
+    width: 11rem;
+    padding: 0.85rem;
+  }
+
+  .premium-hero-analytics {
+    right: 1rem;
+    bottom: 1rem;
+    width: 11.5rem;
+    padding: 0.85rem;
+  }
+
+  .premium-hero-note-left {
+    left: 1.5rem;
+    bottom: 1rem;
+    width: 9.5rem;
   }
 
   .premium-hero-note-right,
