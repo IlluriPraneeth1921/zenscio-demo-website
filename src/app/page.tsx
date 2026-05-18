@@ -233,7 +233,7 @@ export default function Home() {
           </div>
 
           <div className="fade-rise-delay">
-            <PremiumAgencyHero />
+            <PremiumAgencyHero variant="compact" />
           </div>
         </section>
 

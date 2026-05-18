@@ -5,9 +5,15 @@ const workflowNodes = [
   { label: "Launch live", className: "right-8 bottom-16" },
 ];
 
-export function PremiumAgencyHero() {
+type PremiumAgencyHeroProps = {
+  variant?: "default" | "compact";
+};
+
+export function PremiumAgencyHero({ variant = "default" }: PremiumAgencyHeroProps) {
+  const isCompact = variant === "compact";
+
   return (
-    <div className="premium-hero-visual">
+    <div className={`premium-hero-visual ${isCompact ? "premium-hero-visual-compact" : ""}`}>
       <div className="premium-hero-glow" />
 
       <div className="premium-hero-browser">
@@ -69,21 +75,25 @@ export function PremiumAgencyHero() {
         <p>Premium dark UI, glass layers, service clarity, launch-safe handoff.</p>
       </div>
 
-      <div className="premium-hero-note premium-hero-note-right">
-        <p className="premium-mini-label">Delivery mode</p>
-        <p>Website mockup, workflow mapping, code posture, and proof architecture in one surface.</p>
-      </div>
-
-      <div className="premium-workflow">
-        {workflowNodes.map((node) => (
-          <div key={node.label} className={`premium-workflow-node ${node.className}`}>
-            {node.label}
+      {!isCompact ? (
+        <>
+          <div className="premium-hero-note premium-hero-note-right">
+            <p className="premium-mini-label">Delivery mode</p>
+            <p>Website mockup, workflow mapping, code posture, and proof architecture in one surface.</p>
           </div>
-        ))}
-        <div className="premium-workflow-line premium-workflow-line-a" />
-        <div className="premium-workflow-line premium-workflow-line-b" />
-        <div className="premium-workflow-line premium-workflow-line-c" />
-      </div>
+
+          <div className="premium-workflow">
+            {workflowNodes.map((node) => (
+              <div key={node.label} className={`premium-workflow-node ${node.className}`}>
+                {node.label}
+              </div>
+            ))}
+            <div className="premium-workflow-line premium-workflow-line-a" />
+            <div className="premium-workflow-line premium-workflow-line-b" />
+            <div className="premium-workflow-line premium-workflow-line-c" />
+          </div>
+        </>
+      ) : null}
     </div>
   );
 }
