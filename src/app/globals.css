@@ -26,10 +26,17 @@
 }
 
 html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 8.5rem;
   background:
     radial-gradient(circle at top left, rgba(204, 106, 77, 0.18), transparent 28%),
     radial-gradient(circle at 85% 12%, rgba(22, 95, 96, 0.14), transparent 25%),
     linear-gradient(180deg, #f6efe5 0%, #f0e5d8 100%);
+}
+
+#project-review,
+#contact {
+  scroll-margin-top: 8.5rem;
 }
 
 body {
@@ -101,6 +108,10 @@ img {
 .hero-grid {
   display: grid;
   gap: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.hero-copy-column {
+  align-self: start;
 }
 
 .hero-first-screen {
@@ -221,6 +232,77 @@ img {
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-ink);
+}
+
+.hero-contact-stack {
+  display: grid;
+  gap: 1rem;
+  align-self: start;
+}
+
+.hero-form-shell {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem;
+  border: 1px solid rgba(13, 19, 32, 0.08);
+  border-radius: 2.25rem;
+  background:
+    radial-gradient(circle at top right, rgba(89, 213, 255, 0.12), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(127, 92, 255, 0.14), transparent 32%),
+    linear-gradient(145deg, #08111d 0%, #0f1c2d 56%, #143447 100%);
+  box-shadow: 0 32px 90px rgba(8, 17, 29, 0.18);
+}
+
+.hero-form-copy {
+  padding: 0.15rem 0.25rem 0;
+}
+
+.hero-form-shell .offer-tag {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.hero-form-title {
+  margin: 0.5rem 0 0;
+  max-width: 17ch;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(1.9rem, 2.6vw, 2.4rem);
+  line-height: 1.05;
+  color: white;
+}
+
+.hero-form-description {
+  margin: 0.55rem 0 0;
+  max-width: 42rem;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.68;
+}
+
+.hero-contact-proof-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .hero-contact-proof-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.hero-contact-proof-card {
+  padding: 1rem 1.05rem;
+  border: 1px solid rgba(13, 19, 32, 0.08);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 18px 44px rgba(13, 19, 32, 0.06);
+}
+
+.hero-contact-proof-card .contact-proof-label {
+  font-size: 1.35rem;
+  color: var(--color-ink);
+}
+
+.hero-contact-proof-card .contact-proof-copy {
+  color: var(--color-slate);
 }
 
 .hero-board {
@@ -638,6 +720,19 @@ img {
   background: linear-gradient(180deg, rgba(255, 252, 247, 0.94), rgba(247, 238, 227, 0.96));
 }
 
+.contact-form-panel-compact {
+  gap: 0.75rem;
+  padding: 0.72rem;
+}
+
+.contact-form-panel-compact .contact-textarea {
+  min-height: 5.25rem;
+}
+
+.contact-form-panel-compact .contact-submit {
+  min-height: 2.85rem;
+}
+
 .contact-form-intro {
   border-radius: 1.6rem;
   background: white;
@@ -693,6 +788,16 @@ img {
   transform: translateY(-1px);
   box-shadow: 0 22px 46px rgba(13, 19, 32, 0.2);
   background: linear-gradient(135deg, #cc6a4d, #7f5cff);
+}
+
+.contact-followup-card {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.6rem;
+  border: 1px solid rgba(13, 19, 32, 0.08);
+  border-radius: 2rem;
+  background: linear-gradient(180deg, rgba(255, 252, 247, 0.9), rgba(247, 238, 227, 0.98));
+  box-shadow: 0 24px 60px rgba(13, 19, 32, 0.08);
 }
 
 .fade-rise {
@@ -1254,6 +1359,16 @@ img {
 @media (min-width: 1024px) and (max-height: 820px) {
   .hero-first-screen {
     min-height: calc(100svh - 5.5rem);
+    padding-top: 0.65rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .hero-grid {
+    gap: 1.5rem;
+  }
+
+  .hero-copy-column {
+    gap: 1.1rem;
   }
 
   .hero-title {
@@ -1267,39 +1382,54 @@ img {
     line-height: 1.74;
   }
 
-  .premium-hero-visual {
-    min-height: 33rem;
+  .metric-card {
+    padding: 1rem;
   }
 
-  .premium-hero-browser {
-    top: 2rem;
-    left: 1.5rem;
-    width: min(calc(100% - 14.5rem), 25rem);
+  .metric-value {
+    font-size: 1.02rem;
   }
 
-  .premium-hero-code {
-    top: 1rem;
-    right: 1rem;
-    width: 11rem;
-    padding: 0.85rem;
+  .hero-form-shell {
+    gap: 0.75rem;
+    padding: 0.9rem;
   }
 
-  .premium-hero-analytics {
-    right: 1rem;
-    bottom: 1rem;
-    width: 11.5rem;
-    padding: 0.85rem;
+  .hero-form-title {
+    font-size: 1.8rem;
   }
 
-  .premium-hero-note-left {
-    left: 1.5rem;
-    bottom: 1rem;
-    width: 9.5rem;
+  .hero-form-description {
+    line-height: 1.55;
   }
 
-  .premium-hero-note-right,
-  .premium-workflow {
-    display: none;
+  .contact-form-panel-compact {
+    gap: 0.7rem;
+    padding: 0.65rem;
+  }
+
+  .contact-form-panel-compact .contact-input {
+    padding: 0.68rem 0.88rem;
+  }
+
+  .contact-form-panel-compact .contact-textarea {
+    min-height: 4.5rem;
+  }
+
+  .contact-form-panel-compact .contact-submit {
+    min-height: 2.7rem;
+  }
+
+  .hero-contact-proof-grid {
+    gap: 0.7rem;
+  }
+
+  .hero-contact-proof-card {
+    padding: 0.9rem;
+  }
+
+  .hero-contact-proof-card .contact-proof-label {
+    font-size: 1.15rem;
   }
 }
 

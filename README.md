@@ -24,7 +24,16 @@ Open `http://localhost:3000`.
 - Reusable section and navigation components
 - SEO metadata defaults in `src/app/layout.tsx`
 - Analytics placeholder for an approved tracking vendor
-- Safe contact form flow that opens a local email draft rather than storing lead data
+- Server-side contact intake route with validation, honeypot filtering, and webhook forwarding via environment variables
+
+## Lead capture configuration
+
+Set these runtime environment variables before launch:
+
+- `LEAD_CAPTURE_WEBHOOK_URL`: HTTPS endpoint that receives lead submissions as JSON
+- `LEAD_CAPTURE_WEBHOOK_TOKEN`: optional bearer token forwarded to the webhook
+
+The contact form posts to `/api/leads`. If `LEAD_CAPTURE_WEBHOOK_URL` is missing, submissions fail closed with a setup message instead of pretending the lead was captured.
 
 ## Deployment
 

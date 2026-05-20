@@ -10,7 +10,7 @@
 
 - Edit the section arrays in `src/app/page.tsx`
 - Replace placeholder testimonials, portfolio summaries, and pricing values with client-specific content
-- Update the contact destination email passed into `ContactForm`
+- Update the contact copy and response expectations around the project review form
 
 ## Structural changes
 
@@ -20,6 +20,7 @@
 
 ## Safe upgrade path
 
-- Replace the mailto contact flow with an API route or approved form provider
+- Point `LEAD_CAPTURE_WEBHOOK_URL` at the approved intake destination for each environment
+- Add `LEAD_CAPTURE_WEBHOOK_TOKEN` if the receiving endpoint expects bearer authentication
 - Swap the analytics placeholder with a consent-aware provider component
 - Add CMS or MDX integration only after the content editing workflow is decided

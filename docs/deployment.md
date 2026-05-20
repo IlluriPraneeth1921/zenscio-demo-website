@@ -6,20 +6,21 @@ Deploy to Vercel or another Node-compatible platform that supports Next.js App R
 
 ## Pre-deploy checklist
 
-- Confirm final brand copy and contact email
+- Confirm final brand copy and form response copy
 - Replace placeholder metadata URL in `src/app/layout.tsx`
 - Decide whether analytics is approved
-- Confirm whether the contact form should remain mailto-based or move to a validated backend flow
+- Set `LEAD_CAPTURE_WEBHOOK_URL` to the approved intake endpoint
+- Set `LEAD_CAPTURE_WEBHOOK_TOKEN` if the intake endpoint requires bearer auth
 
 ## Minimal deployment steps
 
 1. Push the project to a Git provider or attach the workspace directly to your preferred host.
 2. Configure the project as a Next.js application.
-3. Set any public environment variables such as `NEXT_PUBLIC_ANALYTICS_ID` only after approval.
+3. Set `LEAD_CAPTURE_WEBHOOK_URL` and any approved public variables such as `NEXT_PUBLIC_ANALYTICS_ID`.
 4. Run the host preview build.
 5. Review mobile layout, anchor navigation, metadata, and contact flow before production release.
 
 ## Notes
 
-- No production credentials are required for the current template state.
-- The current contact flow is deliberately local-only and should be upgraded before collecting leads at scale.
+- The contact route fails closed until `LEAD_CAPTURE_WEBHOOK_URL` is configured.
+- Soft launch is provider-agnostic: any HTTPS endpoint that accepts JSON can receive the lead payload.

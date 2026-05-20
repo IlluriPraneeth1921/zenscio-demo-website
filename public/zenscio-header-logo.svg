@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="480" viewBox="0 0 1800 480" role="img" aria-labelledby="title desc">
+  <title id="title">Zenscio horizontal header logo</title>
+  <desc id="desc">Horizontal Zenscio logo with icon on the left and wordmark on the right.</desc>
+
+
+
+<g id="zenscio-icon" transform="translate(110 55) scale(0.72)">
+  <path fill="#FFFFFF" d="M126 199
+    C128 137 168 104 226 104
+    H394
+    L345 165
+    H219
+    C184 165 153 177 126 199Z"/>
+  <path fill="#FFFFFF" d="M303 166
+    H376
+    L259 288
+    H186
+    L303 166Z"/>
+  <path fill="#FFFFFF" d="M120 402
+    L176 340
+    H307
+    C353 340 383 324 403 292
+    C400 362 358 402 294 402
+    H120Z"/>
+  <path fill="#FFFFFF" d="M108 330
+    C166 269 232 276 294 254
+    C341 237 369 203 394 166
+    C389 229 354 285 300 314
+    C240 346 179 312 108 366
+    C111 354 108 342 108 330Z"/>
+</g>
+
+  <text x="575" y="305"
+        font-family="Inter, Avenir Next, Montserrat, DejaVu Sans, Arial, sans-serif"
+        font-size="172" font-weight="300" letter-spacing="16" fill="#FFFFFF">Zenscio</text>
+</svg>

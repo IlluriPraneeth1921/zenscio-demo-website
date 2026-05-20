@@ -1,12 +1,10 @@
-import { AnalyticsPlaceholder } from "@/components/analytics-placeholder";
 import { ContactForm } from "@/components/contact-form";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
-import { PremiumAgencyHero } from "@/components/visuals/premium-agency-hero";
 
 const trustPoints = [
   "Clear scope before design starts",
-  "Transparent pricing without vague package names",
+  "Transparent pricing from the first conversation",
   "SEO-ready structure and mobile-first layouts",
   "Vercel-ready deployment on a modern Next.js base",
   "Automation-ready workflows for future growth",
@@ -19,28 +17,28 @@ const heroMetrics = [
   ["Future-ready", "Built for expansion into automation and operations later."],
 ];
 
-const demoWebsites = [
+const exampleDirections = [
   {
-    name: "Restaurant / Cafe Website",
-    tone: "Warm visuals, menu highlights, booking CTA.",
+    name: "Restaurant / cafe direction",
+    tone: "Illustrative concept focused on atmosphere, menu highlights, and a clear reservation path.",
     accent: "from-[#ff8f70]/45 via-[#2a1642]/25 to-transparent",
     preview: ["Chef's tasting menu", "Reservations", "Weekend events"],
   },
   {
-    name: "Local Service Business Website",
-    tone: "Trust-led layout for electricians, clinics, and repair businesses.",
+    name: "Local service business direction",
+    tone: "Illustrative concept for electricians, clinics, and repair teams that need stronger trust signals.",
     accent: "from-[#59d5ff]/40 via-[#123443]/30 to-transparent",
     preview: ["Emergency callout", "Areas served", "Verified reviews"],
   },
   {
-    name: "Coaching / Consulting Website",
-    tone: "Authority, testimonials, and clear program structure.",
+    name: "Coaching / consulting direction",
+    tone: "Illustrative concept built around authority, social proof, and a clearer program structure.",
     accent: "from-[#7f5cff]/42 via-[#1b173d]/30 to-transparent",
     preview: ["Signature framework", "Client wins", "Book strategy call"],
   },
   {
-    name: "eCommerce Starter Website",
-    tone: "Fast launch storefront with premium product storytelling.",
+    name: "eCommerce starter direction",
+    tone: "Illustrative concept for a fast-launch storefront with premium product storytelling.",
     accent: "from-[#3ee6c4]/40 via-[#122e31]/28 to-transparent",
     preview: ["Featured drop", "Bundles", "Secure checkout"],
   },
@@ -110,18 +108,18 @@ const pricingCards = [
 
 const caseStudies = [
   {
-    title: "Clinic trust rebuild",
-    summary: "Reframed a local healthcare brand around clarity, doctor credibility, and cleaner conversion flow.",
+    title: "Healthcare homepage clarity",
+    summary: "A common improvement pattern: clearer service hierarchy, better doctor credibility cues, and a simpler conversion path.",
     highlights: ["Clearer service hierarchy", "Trust markers above the fold", "Faster mobile contact path"],
   },
   {
-    title: "Home services lead filter",
-    summary: "Turned a generic contractor landing page into a stronger quoting funnel with better page rhythm.",
+    title: "Home services quote quality",
+    summary: "A common improvement pattern: stronger service-area proof, better CTA placement, and clearer qualification cues.",
     highlights: ["Service-area proof layout", "Visible urgency CTA", "Quote quality improved"],
   },
   {
-    title: "Coaching authority refresh",
-    summary: "Elevated an information-heavy consulting page into a premium narrative with sharper offer framing.",
+    title: "Consulting offer framing",
+    summary: "A common improvement pattern: simplifying an information-heavy page into a sharper premium narrative.",
     highlights: ["Program structure simplified", "Proof integrated into page flow", "Stronger close section"],
   },
 ];
@@ -150,16 +148,18 @@ const processSteps = [
 ];
 
 const contactSignals = [
-  ["24h", "Typical first response window for qualified project inquiries."],
-  ["3-part", "Call structure covering offer, page gaps, and launch constraints."],
-  ["0 fluff", "Clear scope, direct recommendations, and practical next steps."],
+  ["Manual", "Every submission is reviewed by a person, not routed into an instant auto-qualification flow."],
+  ["Scope-first", "The first reply focuses on the offer, site gaps, and whether the project is a fit."],
+  ["Direct", "If there is a fit, the next step is a practical conversation about scope and priorities."],
 ];
 
 const contactStudioNotes = [
-  "Current site or landing page link",
-  "Primary offer that needs better trust or conversion",
-  "Decision timeline, launch pressure, or internal constraints",
+  "A link to the current site, landing page, or draft",
+  "The primary offer that needs clearer trust or conversion support",
+  "Any timing, budget, or approval constraints that affect launch",
 ];
+
+const projectReviewHref = "#project-review";
 
 function ServiceIcon({ icon }: { icon: string }) {
   const common = "h-5 w-5 stroke-[1.8]";
@@ -204,7 +204,7 @@ export default function Home() {
       <SiteHeader />
       <main className="section-grid">
         <section className="hero-grid hero-first-screen mx-auto max-w-7xl px-6 pb-12 pt-6 lg:px-8 lg:pb-14 lg:pt-8 xl:pb-20 xl:pt-10">
-          <div className="space-y-6 xl:space-y-8 fade-rise">
+          <div className="hero-copy-column space-y-6 xl:space-y-8 fade-rise">
             <div className="eyebrow-chip">Premium dark launch systems for ambitious Indian businesses</div>
             <div className="space-y-5 xl:space-y-6">
               <p className="hero-kicker">Modern websites, automation-ready workflows, and premium first impressions.</p>
@@ -215,11 +215,11 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <a href="#contact" className="primary-cta">
-                Book a strategy call
+              <a href={projectReviewHref} className="primary-cta">
+                Book a project review
               </a>
               <a href="#demo-websites" className="secondary-cta">
-                Explore demo websites
+                See example website directions
               </a>
             </div>
             <dl className="grid gap-4 pt-2 xl:pt-4 sm:grid-cols-3">
@@ -232,19 +232,38 @@ export default function Home() {
             </dl>
           </div>
 
-          <div className="fade-rise-delay">
-            <PremiumAgencyHero variant="compact" />
+          <div className="hero-contact-stack fade-rise-delay">
+            <div id="project-review" className="hero-form-shell">
+              <div className="hero-form-copy">
+                <p className="offer-tag">Start the project review</p>
+                <h2 className="hero-form-title">Start with the offer, current site, and launch context</h2>
+                <p className="hero-form-description">
+                  Share the current site, the main offer, and the launch context. The first reply is a manual review of
+                  fit, trust gaps, and the most practical next step.
+                </p>
+              </div>
+              <ContactForm variant="compact" />
+            </div>
+
+            <div className="hero-contact-proof-grid">
+              {contactSignals.map(([label, value]) => (
+                <div key={label} className="hero-contact-proof-card">
+                  <p className="contact-proof-label">{label}</p>
+                  <p className="contact-proof-copy">{value}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         <section id="demo-websites" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           <SectionHeading
-            eyebrow="Demo websites we can build"
-            title="Four preview directions that show range without looking template-made"
-            description="Each concept is presented like a mini website surface, not a plain text card, so buyers can immediately picture the caliber of launch Zenscio can deliver."
+            eyebrow="Illustrative directions"
+            title="Four illustrative website directions for common business models"
+            description="These are concept directions, not live client demos. They show how Zenscio would shape tone, conversion paths, and trust signals for different categories."
           />
           <div className="mt-10 grid gap-6 xl:grid-cols-4">
-            {demoWebsites.map((item) => (
+            {exampleDirections.map((item) => (
               <article key={item.name} className="demo-card">
                 <div className={`demo-preview bg-gradient-to-br ${item.accent}`}>
                   <div className="demo-window">
@@ -274,8 +293,8 @@ export default function Home() {
         <section id="services" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           <SectionHeading
             eyebrow="Services"
-            title="Five service layers designed to make launch quality obvious"
-            description="Each card carries a concrete benefit, a visual accent, and a more premium interaction surface than the previous generic service grids."
+            title="Five service layers for launch, growth, and follow-through"
+            description="From design to deployment, each service is structured to improve first impressions and keep the website easy to extend."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
             {services.map((service) => (
@@ -293,15 +312,15 @@ export default function Home() {
 
         <section id="case-studies" className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           <SectionHeading
-            eyebrow="Case studies"
-            title="Representative outcomes framed like real project stories"
-            description="These examples are positioned to show the kinds of before-and-after improvements Zenscio can deliver for service businesses that need stronger first impressions."
+            eyebrow="Common upgrade patterns"
+            title="Typical improvement patterns for brands that need stronger trust signals"
+            description="These examples describe common before-and-after themes, not named client case studies."
           />
           <div className="mt-10 grid gap-6 xl:grid-cols-3">
             {caseStudies.map((item) => (
               <article key={item.title} className="case-study-card">
                 <div className="case-study-top">
-                  <p className="offer-tag">Representative project</p>
+                  <p className="offer-tag">Common engagement pattern</p>
                   <h3 className="case-study-title">{item.title}</h3>
                   <p className="case-study-summary">{item.summary}</p>
                 </div>
@@ -321,8 +340,8 @@ export default function Home() {
           <div className="pricing-shell">
             <SectionHeading
               eyebrow="Pricing"
-              title="Clean pricing with one clearly highlighted business website offer"
-              description="The layout is split into a three-card first row and a two-card second row so pricing reads quickly on desktop without awkward wrapping."
+              title="Clear pricing for focused launches and larger website builds"
+              description="The ranges below give early budget clarity while leaving room to scope around the offer, integrations, and launch complexity."
             />
             <div className="mt-10 pricing-grid">
               {pricingCards.map((item) => (
@@ -346,8 +365,8 @@ export default function Home() {
             <div className="proof-intro">
               <SectionHeading
                 eyebrow="Trust"
-                title="A genuine trust section built around what buyers actually look for"
-                description="This section is here to make the company feel organized, transparent, and technically capable before a conversation even starts."
+                title="What clients can expect before the project starts"
+                description="The process is designed to keep scope clear, delivery practical, and launch decisions grounded in what the business needs next."
                 invert
               />
             </div>
@@ -367,8 +386,8 @@ export default function Home() {
             <div className="about-copy">
               <SectionHeading
                 eyebrow="About"
-                title="Zenscio is structured as a lean premium studio, not a vague agency layer"
-                description="The positioning is intentionally straightforward: clearer offers, cleaner launch systems, and a website surface that makes the business feel more serious from the first screen."
+                title="Zenscio runs as a lean studio with direct technical delivery"
+                description="The focus stays on clearer offers, cleaner launch systems, and websites that make the business feel more established from the first screen."
               />
             </div>
             <div className="grid gap-5">
@@ -384,15 +403,15 @@ export default function Home() {
 
         <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
           <SectionHeading
-            eyebrow="What it feels like"
-            title="A premium launch surface should feel trustworthy before the user starts comparing details"
-            description="The right blend of dark UI, spacing, typography, proof placement, and motion makes the business feel more established without becoming decorative for its own sake."
+            eyebrow="Experience"
+            title="The right website makes credibility clear before the sales conversation starts"
+            description="Strong launch surfaces reduce hesitation with clearer positioning, visible proof, and calls to action that stay easy to find."
           />
           <div className="mt-10 grid gap-6 xl:grid-cols-3">
             {[
-              "Premium dark glass header with a branded Z mark and strong CTA.",
-              "Hero with a real website-and-automation visual, not placeholder chips.",
-              "Section composition designed to look like a serious AI/web company, not a generic freelancer template.",
+              "Clear first-screen positioning that explains what the business does and why it matters.",
+              "Proof, pricing, and service detail placed where buyers naturally look for confidence.",
+              "A visual system that feels polished without getting in the way of conversion.",
             ].map((item) => (
               <div key={item} className="capability-card">
                 <p className="capability-copy mt-0">{item}</p>
@@ -405,7 +424,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Process"
             title="A visual launch timeline from discovery to deployment"
-            description="Discover -> Design -> Build -> Review -> Launch, shown as a connected premium timeline instead of a plain numbered list."
+            description="Every project moves through discovery, design, build, review, and launch with a clear handoff between each step."
           />
           <div className="process-timeline mt-10">
             {processSteps.map(([step, title, body], index) => (
@@ -429,12 +448,12 @@ export default function Home() {
                 Ready to build a website your customers can trust?
               </h2>
               <p className="max-w-2xl text-lg leading-8 text-white/72">
-                Bring the current site, the offer, and the business goal. Zenscio can turn that into a cleaner,
-                sharper, more premium launch system with room for automation later.
+                Bring the current site, the offer, and the business goal. Zenscio turns that into a clearer, sharper
+                launch system with room for automation later.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <a href="#contact" className="primary-cta">
-                  Start your website project
+                <a href={projectReviewHref} className="primary-cta">
+                  Book a project review
                 </a>
                 <a href="#pricing" className="secondary-cta secondary-cta-dark">
                   View pricing
@@ -451,7 +470,7 @@ export default function Home() {
                 <SectionHeading
                   eyebrow="Contact"
                   title="Bring the commercial problem, not a finished brief"
-                  description="If the current homepage undersells the business, confuses the offer, or simply looks too generic for the level you want to sell at, that is enough to start."
+                  description="If the current homepage undersells the business, confuses the offer, or no longer matches the level you want to sell at, that is enough to start. Use this form for real website work, redesigns, and launch planning."
                 />
                 <div className="contact-checklist contact-checklist-dark">
                   <p className="offer-tag">Useful inputs for the first call</p>
@@ -478,8 +497,8 @@ export default function Home() {
               </div>
               <div className="contact-studio-card">
                 <div>
-                  <p className="offer-tag">What to send</p>
-                  <h3 className="contact-studio-title">Enough detail to diagnose the trust and conversion problem fast</h3>
+                  <p className="offer-tag">What happens next</p>
+                  <h3 className="contact-studio-title">A manual first response with clear next-step guidance</h3>
                 </div>
                 <div className="contact-studio-list">
                   {contactStudioNotes.map((item) => (
@@ -489,9 +508,31 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              <AnalyticsPlaceholder />
             </div>
-            <ContactForm destinationEmail="hello@zenscio.example" />
+            <div className="contact-followup-card">
+              <div className="space-y-4">
+                <p className="offer-tag">Review flow</p>
+                <h3 className="contact-studio-title">A short intake makes the first conversation more useful</h3>
+                <p className="capability-copy mt-0">
+                  Once the request is received, the follow-up focuses on offer clarity, page hierarchy, credibility
+                  gaps, and whether the project should move into scoped planning.
+                </p>
+              </div>
+              <div className="contact-studio-list">
+                {[
+                  "The current site or landing page is reviewed before a recommendation is made.",
+                  "The first response frames likely trust, positioning, and conversion issues.",
+                  "If the fit is right, the next step is a scoped review with clear priorities.",
+                ].map((item) => (
+                  <div key={item} className="contact-studio-item">
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <a href="#top" className="secondary-cta">
+                Back to top
+              </a>
+            </div>
           </div>
         </section>
       </main>
@@ -518,8 +559,8 @@ export default function Home() {
             <div>
               <p className="footer-label">Contact</p>
               <div className="footer-links">
-                <a href="#contact">Book a project review</a>
-                <a href="mailto:hello@zenscio.example">hello@zenscio.example</a>
+                <a href={projectReviewHref}>Book a project review</a>
+                <a href={projectReviewHref}>Submit the project brief</a>
                 <a href="#top">Back to top</a>
               </div>
             </div>
