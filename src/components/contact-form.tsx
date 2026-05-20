@@ -95,6 +95,7 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
             required
             name="name"
             className="contact-input"
+            placeholder="Your name"
           />
         </label>
         <label className="space-y-2 text-sm font-medium text-[var(--color-ink)]">
@@ -104,6 +105,7 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
             type="email"
             name="email"
             className="contact-input"
+            placeholder="you@company.com"
           />
         </label>
       </div>
@@ -114,6 +116,7 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
             <input
               name="company"
               className="contact-input"
+              placeholder="Company or brand"
             />
           </label>
         ) : null}
@@ -148,7 +151,7 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
         {status ? (
           <p
             aria-live="polite"
-            className={`text-sm leading-6 ${statusTone === "error" ? "text-[#b42318]" : "text-[var(--color-slate)]"} ${isCompact ? "max-w-[10rem] text-right" : "max-w-sm"}`}
+            className={`contact-status text-sm leading-6 ${statusTone === "error" ? "text-[#b42318]" : ""} ${isCompact ? "max-w-[10rem] text-right" : "max-w-sm"}`}
           >
             {status}
           </p>

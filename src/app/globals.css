@@ -608,9 +608,17 @@ img {
   align-items: start;
 }
 
+.contact-shell-page {
+  gap: 1.5rem;
+}
+
 @media (min-width: 1024px) {
   .contact-shell {
     grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  }
+
+  .contact-shell-page {
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
   }
 }
 
@@ -629,19 +637,24 @@ img {
   box-shadow: 0 32px 90px rgba(8, 17, 29, 0.18);
 }
 
+.contact-story-page {
+  gap: 1rem;
+  padding: 1.65rem;
+}
+
 .contact-story .offer-tag {
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .contact-checklist-dark {
-  border-color: rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(16px);
 }
 
 .offer-point-dark {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .contact-proof-grid {
@@ -665,7 +678,7 @@ img {
 
 .contact-proof-card {
   padding: 1.3rem;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(16px);
 }
 
@@ -679,7 +692,7 @@ img {
 
 .contact-proof-copy {
   margin: 0.7rem 0 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.82);
   line-height: 1.7;
 }
 
@@ -714,8 +727,8 @@ img {
 }
 
 .contact-form-panel {
-  padding: 1.1rem;
-  background: linear-gradient(180deg, rgba(255, 252, 247, 0.94), rgba(247, 238, 227, 0.96));
+  padding: 1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 240, 229, 0.98));
 }
 
 .contact-form-panel-compact {
@@ -733,17 +746,20 @@ img {
 
 .contact-form-intro {
   border-radius: 1.6rem;
-  background: white;
+  background: rgba(255, 255, 255, 0.96);
   padding: 1rem;
+  font-size: 0.97rem;
   line-height: 1.7;
-  color: var(--color-slate);
+  color: #344054;
 }
 
 .contact-input {
   width: 100%;
   border: 1px solid rgba(13, 19, 32, 0.1);
   border-radius: 1.15rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.98);
+  color: var(--color-ink);
+  min-height: 3.1rem;
   padding: 0.95rem 1rem;
   outline: none;
   transition:
@@ -756,6 +772,10 @@ img {
   border-color: rgba(204, 106, 77, 0.8);
   box-shadow: 0 0 0 4px rgba(204, 106, 77, 0.12);
   transform: translateY(-1px);
+}
+
+.contact-input::placeholder {
+  color: #667085;
 }
 
 .contact-textarea {
@@ -790,12 +810,20 @@ img {
 
 .contact-followup-card {
   display: grid;
-  gap: 1.25rem;
-  padding: 1.6rem;
+  gap: 1.15rem;
+  padding: 1.45rem;
   border: 1px solid rgba(13, 19, 32, 0.08);
   border-radius: 2rem;
-  background: linear-gradient(180deg, rgba(255, 252, 247, 0.9), rgba(247, 238, 227, 0.98));
+  background: linear-gradient(180deg, rgba(255, 252, 247, 0.94), rgba(247, 238, 227, 0.99));
   box-shadow: 0 24px 60px rgba(13, 19, 32, 0.08);
+}
+
+.contact-followup-card-page {
+  padding: 1.25rem;
+}
+
+.contact-status {
+  color: #344054;
 }
 
 .fade-rise {

@@ -56,13 +56,19 @@ export function PageIntro({
   eyebrow,
   title,
   description,
+  compact = false,
 }: {
   eyebrow: string;
   title: string;
   description: string;
+  compact?: boolean;
 }) {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-8 pt-10 lg:px-8 lg:pb-10 lg:pt-14">
+    <section
+      className={`mx-auto max-w-7xl px-6 lg:px-8 ${
+        compact ? "pb-6 pt-8 lg:pb-8 lg:pt-10" : "pb-8 pt-10 lg:pb-10 lg:pt-14"
+      }`}
+    >
       <div className="page-intro-shell">
         <p className="hero-kicker">{eyebrow}</p>
         <h1 className="page-intro-title">{title}</h1>
@@ -338,16 +344,17 @@ export function FinalCtaSection() {
   );
 }
 
-export function ContactSection() {
+export function ContactSection({ compact = false }: { compact?: boolean }) {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
-      <div className="contact-shell">
-        <div className="contact-story">
+    <section className={`mx-auto max-w-7xl px-6 lg:px-8 ${compact ? "py-10 lg:py-12" : "py-16 lg:py-24"}`}>
+      <div className={`contact-shell ${compact ? "contact-shell-page" : ""}`}>
+        <div className={`contact-story ${compact ? "contact-story-page" : ""}`}>
           <div className="space-y-8">
             <SectionHeading
               eyebrow="Contact"
               title="Bring the commercial problem, not a finished brief"
               description="If the current homepage undersells the business, confuses the offer, or no longer matches the level you want to sell at, that is enough to start. Use this form for real website work, redesigns, and launch planning."
+              invert
             />
             <div className="contact-checklist contact-checklist-dark">
               <p className="offer-tag">Useful inputs for the first call</p>
@@ -386,7 +393,7 @@ export function ContactSection() {
             </div>
           </div>
         </div>
-        <div className="contact-followup-card">
+        <div className={`contact-followup-card ${compact ? "contact-followup-card-page" : ""}`}>
           <div className="space-y-4">
             <p className="offer-tag">Review flow</p>
             <h3 className="contact-studio-title">A short intake makes the first conversation more useful</h3>
