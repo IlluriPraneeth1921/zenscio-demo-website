@@ -54,18 +54,18 @@ export function PremiumAgencyHero({ variant = "default" }: PremiumAgencyHeroProp
       </div>
 
       <div className="premium-hero-analytics">
-        <p className="premium-mini-label">Conversion signal</p>
+        <p className="premium-mini-label">Studio signals</p>
         <div className="premium-analytics-meter">
-          <span style={{ width: "74%" }} />
+          <span style={{ width: "100%" }} />
         </div>
         <div className="premium-analytics-stats">
           <div>
-            <strong>+38%</strong>
-            <span>Qualified leads</span>
+            <strong>Manual</strong>
+            <span>Inquiry review</span>
           </div>
           <div>
-            <strong>2.4x</strong>
-            <span>Faster first impression</span>
+            <strong>Launch-safe</strong>
+            <span>Technical handoff</span>
           </div>
         </div>
       </div>

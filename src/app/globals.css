@@ -1571,7 +1571,17 @@ img {
   gap: 1rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pricing-spec-card:nth-child(3) {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1280px) {
   .pricing-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
@@ -1585,7 +1595,7 @@ img {
   color: var(--color-ink);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .pricing-spec-card:nth-child(-n + 3) {
     grid-column: span 2;
   }
@@ -1601,8 +1611,17 @@ img {
   box-shadow: 0 24px 70px rgba(13, 19, 32, 0.18);
 }
 
+.pricing-spec-card-featured .pricing-name {
+  color: white;
+}
+
 .pricing-spec-card-featured .pricing-range {
   color: var(--color-gold);
+}
+
+.pricing-spec-card-featured .pricing-badge {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
 }
 
 .case-study-card {

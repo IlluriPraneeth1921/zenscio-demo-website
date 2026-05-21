@@ -8,63 +8,20 @@ type ContactFormProps = {
 
 export function ContactForm({ variant = "default" }: ContactFormProps) {
   const isCompact = variant === "compact";
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [statusTone, setStatusTone] = useState<"neutral" | "success" | "error">("neutral");
+  const [statusTone, setStatusTone] = useState<"neutral" | "success">("neutral");
   const [status, setStatus] = useState(
-    isCompact ? "" : "Project inquiries are sent through the site intake endpoint and reviewed before a reply is sent."
+    isCompact ? "" : "Demo-safe intake only. This form does not deliver submissions until an approved workflow is selected."
   );
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    const name = String(formData.get("name") ?? "").trim();
-    const email = String(formData.get("email") ?? "").trim();
-    const company = isCompact ? "" : String(formData.get("company") ?? "").trim();
-    const projectType = String(formData.get("projectType") ?? "").trim();
-    const details = String(formData.get("details") ?? "").trim();
-    const companySite = String(formData.get("companySite") ?? "").trim();
-
-    setIsSubmitting(true);
-    setStatusTone("neutral");
-    setStatus(isCompact ? "Sending inquiry..." : "Sending the project inquiry...");
-
-    try {
-      const response = await fetch("/api/leads", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          company,
-          projectType,
-          details,
-          companySite,
-        }),
-      });
-
-      const responseBody = (await response.json().catch(() => null)) as { error?: string } | null;
-
-      if (!response.ok) {
-        throw new Error(responseBody?.error || "Submission failed. Try again shortly.");
-      }
-
-      setStatusTone("success");
-      setStatus(
-        isCompact
-          ? "Inquiry sent."
-          : "Project inquiry sent. The brief is now available for manual review through the configured intake setup."
-      );
-      form.reset();
-    } catch (error) {
-      setStatusTone("error");
-      setStatus(error instanceof Error ? error.message : "Submission failed. Try again shortly.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    event.currentTarget.reset();
+    setStatusTone("success");
+    setStatus(
+      isCompact
+        ? "Demo only. No inquiry was sent."
+        : "Demo only. No inquiry was sent, stored, or forwarded. This safely previews the intake experience."
+    );
   }
 
   return (
@@ -75,9 +32,8 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
       {!isCompact ? (
         <div className="contact-form-intro">
           <>
-            Share the offer, timeline, and decision constraints. This form is for active website projects, redesigns,
-            and launch planning. It gives Zenscio the context needed to decide fit and shape the first conversation
-            around scope, proof requirements, and launch priorities.
+            Share the offer, timeline, and decision constraints. This version is intentionally demo-safe: it previews
+            the intake experience without delivering, storing, or forwarding any submission.
           </>
         </div>
       ) : null}
@@ -145,13 +101,13 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
         />
       </label>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <button type="submit" className="contact-submit" disabled={isSubmitting}>
-          {isSubmitting ? "Sending..." : "Send project inquiry"}
+        <button type="submit" className="contact-submit">
+          Preview project inquiry
         </button>
         {status ? (
           <p
             aria-live="polite"
-            className={`contact-status text-sm leading-6 ${statusTone === "error" ? "text-[#b42318]" : ""} ${isCompact ? "max-w-[10rem] text-right" : "max-w-sm"}`}
+            className={`contact-status text-sm leading-6 ${statusTone === "success" ? "text-[#175cd3]" : ""} ${isCompact ? "max-w-[12rem] text-right" : "max-w-sm"}`}
           >
             {status}
           </p>

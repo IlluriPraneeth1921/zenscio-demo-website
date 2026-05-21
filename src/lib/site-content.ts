@@ -8,7 +8,7 @@ export const navItems = [
 
 export const trustPoints = [
   "Clear scope before design starts",
-  "Transparent pricing from the first conversation",
+  "Transparent ₹ pricing from the first conversation",
   "SEO-ready structure and mobile-first layouts",
   "Vercel-ready deployment on a modern Next.js base",
   "Automation-ready workflows for future growth",
@@ -23,28 +23,41 @@ export const heroMetrics = [
 
 export const exampleDirections = [
   {
+    name: "Ckart construction marketplace",
+    tone: "Live reference: Ckart shows how a construction-materials catalog can be presented with clearer hierarchy, stronger product trust, and a more credible eCommerce surface.",
+    accent: "from-[#59d5ff]/40 via-[#123443]/30 to-transparent",
+    preview: ["Construction catalog", "Category-led browsing", "Visit website"],
+    href: "https://ckart.co.in/",
+    ctaLabel: "Visit website",
+    badge: "Live project",
+  },
+  {
     name: "Restaurant / cafe direction",
     tone: "Illustrative concept focused on atmosphere, menu highlights, and a clear reservation path.",
     accent: "from-[#ff8f70]/45 via-[#2a1642]/25 to-transparent",
     preview: ["Chef's tasting menu", "Reservations", "Weekend events"],
+    badge: "Illustrative direction",
   },
   {
     name: "Local service business direction",
     tone: "Illustrative concept for electricians, clinics, and repair teams that need stronger trust signals.",
     accent: "from-[#59d5ff]/40 via-[#123443]/30 to-transparent",
     preview: ["Emergency callout", "Areas served", "Verified reviews"],
+    badge: "Illustrative direction",
   },
   {
     name: "Coaching / consulting direction",
     tone: "Illustrative concept built around authority, social proof, and a clearer program structure.",
     accent: "from-[#7f5cff]/42 via-[#1b173d]/30 to-transparent",
-    preview: ["Signature framework", "Client wins", "Book strategy call"],
+    preview: ["Signature framework", "Client wins", "Project review"],
+    badge: "Illustrative direction",
   },
   {
     name: "eCommerce starter direction",
     tone: "Illustrative concept for a fast-launch storefront with premium product storytelling.",
     accent: "from-[#3ee6c4]/40 via-[#122e31]/28 to-transparent",
     preview: ["Featured drop", "Bundles", "Secure checkout"],
+    badge: "Illustrative direction",
   },
 ];
 
@@ -84,47 +97,58 @@ export const services = [
 export const pricingCards = [
   {
     name: "Landing Page",
-    price: "Rs 7,999 - Rs 14,999",
+    price: "₹7,999 - ₹14,999",
     description: "Best for focused campaigns, launches, and single-offer conversion pages.",
   },
   {
     name: "Business Website",
-    price: "Rs 19,999 - Rs 39,999",
+    price: "₹19,999 - ₹39,999",
     description: "Multi-section company websites with a premium look, cleaner scope, and trust-led structure.",
     featured: true,
   },
   {
     name: "eCommerce",
-    price: "Rs 49,999 - Rs 89,999",
+    price: "₹49,999 - ₹89,999",
     description: "Starter product stores with premium storytelling and scalable launch foundations.",
   },
   {
     name: "AI Automation Add-on",
-    price: "Rs 14,999 - Rs 49,999",
+    price: "₹14,999 - ₹49,999",
     description: "Workflow logic, handoff automation, and internal operational uplift around the website.",
   },
   {
     name: "Website Maintenance",
-    price: "Rs 2,999/month onwards",
+    price: "₹2,999/month onwards",
     description: "Post-launch support, content updates, and iterative improvements without rebuild risk.",
   },
 ];
 
 export const caseStudies = [
   {
+    title: "Ckart - Construction Materials eCommerce Platform",
+    summary: "Live project reference for a construction-materials marketplace, framed around category clarity, stronger product trust cues, and a more premium browsing experience.",
+    highlights: ["Construction-materials eCommerce", "Category-led catalog structure", "External live website CTA"],
+    href: "https://ckart.co.in/",
+    ctaLabel: "Visit website",
+    badge: "Live project",
+  },
+  {
     title: "Healthcare homepage clarity",
     summary: "A common improvement pattern: clearer service hierarchy, better doctor credibility cues, and a simpler conversion path.",
     highlights: ["Clearer service hierarchy", "Trust markers above the fold", "Faster mobile contact path"],
+    badge: "Common engagement pattern",
   },
   {
     title: "Home services quote quality",
     summary: "A common improvement pattern: stronger service-area proof, better CTA placement, and clearer qualification cues.",
     highlights: ["Service-area proof layout", "Visible urgency CTA", "Quote quality improved"],
+    badge: "Common engagement pattern",
   },
   {
     title: "Consulting offer framing",
     summary: "A common improvement pattern: simplifying an information-heavy page into a sharper premium narrative.",
     highlights: ["Program structure simplified", "Proof integrated into page flow", "Stronger close section"],
+    badge: "Common engagement pattern",
   },
 ];
 

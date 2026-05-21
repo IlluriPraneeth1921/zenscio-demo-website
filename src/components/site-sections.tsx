@@ -128,11 +128,11 @@ export function DemoWebsiteSection() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
       <SectionHeading
-        eyebrow="Illustrative directions"
-        title="Four illustrative website directions for common business models"
-        description="These are concept directions, not live client demos. They show how Zenscio would shape tone, conversion paths, and trust signals for different categories."
+        eyebrow="Featured work and directions"
+        title="A live eCommerce reference plus illustrative directions for common business models"
+        description="Ckart is included as the featured live eCommerce reference. The other cards stay clearly framed as illustrative directions that show how Zenscio shapes tone, conversion paths, and trust signals."
       />
-      <div className="mt-10 grid gap-6 xl:grid-cols-4">
+      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
         {exampleDirections.map((item) => (
           <article key={item.name} className="demo-card">
             <div className={`demo-preview bg-gradient-to-br ${item.accent}`}>
@@ -152,8 +152,14 @@ export function DemoWebsiteSection() {
               </div>
             </div>
             <div className="p-6">
+              <p className="offer-tag">{item.badge ?? "Illustrative direction"}</p>
               <h3 className="capability-title text-[1.3rem]">{item.name}</h3>
               <p className="capability-copy">{item.tone}</p>
+              {item.href ? (
+                <Link href={item.href} target="_blank" rel="noreferrer" className="secondary-cta mt-5 w-full">
+                  {item.ctaLabel ?? "Visit website"}
+                </Link>
+              ) : null}
             </div>
           </article>
         ))}
@@ -190,15 +196,15 @@ export function CaseStudiesSection() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
       <SectionHeading
-        eyebrow="Common upgrade patterns"
-        title="Typical improvement patterns for brands that need stronger trust signals"
-        description="These examples describe common before-and-after themes, not named client case studies."
+        eyebrow="Case studies"
+        title="A live eCommerce project plus representative upgrade patterns"
+        description="Ckart is presented as the first live eCommerce reference. The remaining cards explain common before-and-after themes without inventing private client metrics."
       />
       <div className="mt-10 grid gap-6 xl:grid-cols-3">
         {caseStudies.map((item) => (
           <article key={item.title} className="case-study-card">
             <div className="case-study-top">
-              <p className="offer-tag">Common engagement pattern</p>
+              <p className="offer-tag">{item.badge ?? "Common engagement pattern"}</p>
               <h3 className="case-study-title">{item.title}</h3>
               <p className="case-study-summary">{item.summary}</p>
             </div>
@@ -208,6 +214,11 @@ export function CaseStudiesSection() {
                   {highlight}
                 </div>
               ))}
+              {item.href ? (
+                <Link href={item.href} target="_blank" rel="noreferrer" className="secondary-cta mt-2 w-full">
+                  {item.ctaLabel ?? "Visit website"}
+                </Link>
+              ) : null}
             </div>
           </article>
         ))}
