@@ -246,7 +246,7 @@ export function PricingSection() {
                 </div>
                 {item.featured ? <div className="pricing-badge">Most Popular</div> : null}
               </div>
-              <p className="mt-5 text-sm leading-7 text-inherit/80">{item.description}</p>
+              <p className="mt-5 text-sm leading-7 text-inherit/90">{item.description}</p>
             </article>
           ))}
         </div>
@@ -333,11 +333,11 @@ export function FinalCtaSection() {
     <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
       <div className="final-cta-shell">
         <div className="space-y-6">
-          <p className="offer-tag text-white/70">Final CTA</p>
+          <p className="offer-tag text-white/82">Final CTA</p>
           <h2 className="font-[family:var(--font-space-grotesk)] text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Ready to build a website your customers can trust?
           </h2>
-          <p className="max-w-2xl text-lg leading-8 text-white/72">
+          <p className="max-w-2xl text-lg leading-8 text-white/86">
             Bring the current site, the offer, and the business goal. Zenscio turns that into a clearer, sharper
             launch system with room for automation later.
           </p>

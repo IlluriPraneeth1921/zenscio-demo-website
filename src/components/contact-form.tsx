@@ -8,7 +8,7 @@ type ContactFormProps = {
 
 export function ContactForm({ variant = "default" }: ContactFormProps) {
   const isCompact = variant === "compact";
-  const [statusTone, setStatusTone] = useState<"neutral" | "success">("neutral");
+  const [statusTone, setStatusTone] = useState<"neutral" | "success" | "error">("neutral");
   const [status, setStatus] = useState(
     isCompact ? "" : "Demo-safe intake only. This form does not deliver submissions until an approved workflow is selected."
   );
@@ -107,7 +107,9 @@ export function ContactForm({ variant = "default" }: ContactFormProps) {
         {status ? (
           <p
             aria-live="polite"
-            className={`contact-status text-sm leading-6 ${statusTone === "success" ? "text-[#175cd3]" : ""} ${isCompact ? "max-w-[12rem] text-right" : "max-w-sm"}`}
+            className={`contact-status text-sm leading-6 ${
+              statusTone === "success" ? "contact-status-success" : statusTone === "error" ? "contact-status-error" : ""
+            } ${isCompact ? "max-w-[12rem] text-right" : "max-w-sm"}`}
           >
             {status}
           </p>

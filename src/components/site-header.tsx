@@ -22,7 +22,7 @@ export function SiteHeader({ currentPath = "/" }: SiteHeaderProps) {
             />
           </Link>
 
-          <nav className="hidden items-center gap-6 text-sm font-medium text-white/64 md:flex">
+          <nav className="hidden items-center gap-6 text-sm font-medium text-white/82 md:flex">
             {navItems.map((item) => {
               const isActive = currentPath === item.href;
 
@@ -30,6 +30,7 @@ export function SiteHeader({ currentPath = "/" }: SiteHeaderProps) {
                 <Link
                   key={item.href}
                   href={item.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`transition hover:text-white ${isActive ? "text-white" : ""}`}
                 >
                   {item.label}
@@ -49,7 +50,7 @@ export function SiteHeader({ currentPath = "/" }: SiteHeaderProps) {
 
         <nav
           aria-label="Mobile navigation"
-          className="mt-4 flex gap-2 overflow-x-auto pb-1 text-sm font-medium text-white/72 md:hidden"
+          className="mt-4 flex gap-2 overflow-x-auto pb-1 text-sm font-medium text-white/82 md:hidden"
         >
           {navItems.map((item) => {
             const isActive = currentPath === item.href;
@@ -62,7 +63,7 @@ export function SiteHeader({ currentPath = "/" }: SiteHeaderProps) {
                 className={`shrink-0 rounded-full border px-4 py-2 transition ${
                   isActive
                     ? "border-[var(--color-coral)] bg-[var(--color-coral)] text-white"
-                    : "border-white/12 bg-white/6 text-white/72 hover:border-white/24 hover:bg-white/10 hover:text-white"
+                    : "border-white/12 bg-white/8 text-white/82 hover:border-white/28 hover:bg-white/12 hover:text-white"
                 }`}
               >
                 {item.label}

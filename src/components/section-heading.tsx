@@ -15,7 +15,7 @@ export function SectionHeading({
     <div className="max-w-2xl space-y-4">
       <p
         className={`font-[family:var(--font-space-grotesk)] text-sm font-semibold uppercase tracking-[0.3em] ${
-          invert ? "text-white/72" : "text-[var(--color-coral)]"
+          invert ? "text-white/82" : "text-[var(--color-coral)]"
         }`}
       >
         {eyebrow}
@@ -29,7 +29,7 @@ export function SectionHeading({
       </h2>
       <p
         className={`text-base leading-8 sm:text-lg ${
-          invert ? "text-white/78" : "text-[var(--color-slate)]"
+          invert ? "text-white/88" : "text-[var(--color-slate-strong)]"
         }`}
       >
         {description}

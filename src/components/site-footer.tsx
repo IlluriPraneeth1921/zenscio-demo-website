@@ -6,13 +6,13 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-10 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:py-12">
         <div className="space-y-6">
           <div className="space-y-4">
-            <p className="font-[family:var(--font-space-grotesk)] text-sm font-bold uppercase tracking-[0.24em] text-white/68">
+            <p className="font-[family:var(--font-space-grotesk)] text-sm font-bold uppercase tracking-[0.24em] text-white/80">
               Zenscio Web Studio
             </p>
             <h2 className="max-w-2xl font-[family:var(--font-space-grotesk)] text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Sharper websites, clearer offers, and launch systems that feel premium from the first click.
             </h2>
-            <p className="max-w-2xl text-base leading-8 text-white/72">
+            <p className="max-w-2xl text-base leading-8 text-white/86">
               Built for Indian businesses that need stronger trust signals, cleaner structure, and a website that
               feels ready for serious commercial conversations.
             </p>
@@ -21,19 +21,19 @@ export function SiteFooter() {
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="rounded-[1.35rem] border border-white/10 bg-white/6 p-4 backdrop-blur-sm">
               <p className="footer-label">Delivery posture</p>
-              <p className="mt-3 text-sm leading-7 text-white/72">
+              <p className="mt-3 text-sm leading-7 text-white/84">
                 Design, build, and launch kept in one technical workflow.
               </p>
             </div>
             <div className="rounded-[1.35rem] border border-white/10 bg-white/6 p-4 backdrop-blur-sm">
               <p className="footer-label">Review flow</p>
-              <p className="mt-3 text-sm leading-7 text-white/72">
+              <p className="mt-3 text-sm leading-7 text-white/84">
                 Every inquiry is reviewed manually before any scope promise is made.
               </p>
             </div>
             <div className="rounded-[1.35rem] border border-white/10 bg-white/6 p-4 backdrop-blur-sm">
               <p className="footer-label">Launch stack</p>
-              <p className="mt-3 text-sm leading-7 text-white/72">
+              <p className="mt-3 text-sm leading-7 text-white/84">
                 Next.js foundation with a clean path to Vercel-ready deployment.
               </p>
             </div>
